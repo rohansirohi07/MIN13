@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Air Quality Prediction - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" id="navbar">
+                <div class="container-lg">
+            <div class="navbar-brand fw-bold d-flex align-items-center">
+                <i class="fas fa-wind me-2"></i>
+                <span>AirQuality AI</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trends">Visualization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#prediction">Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#report" id="reportNavLink" style="display: none; opacity: 0.5; pointer-events: none;">
+                            <i class="fas fa-file-alt me-1"></i>Report
+                        </a>
+                    </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section - Hero -->
+    <section class="hero" id="home" data-aos="fade-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Delhi Air Quality Prediction</h1>
+            <p class="hero-subtitle">AI-Powered PM2.5 Level Forecasting for Better Health Decisions</p>
+            <div class="hero-stats">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-brain"></i>
+                    <h3>Stacked Generalization</h3>
+                    <p>ML Algorithm</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>94.67%</h3>
+                    <p>R² Score</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-database"></i>
+                    <h3>Real-time</h3>
+                    <p>Predictions</p>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#prediction" class="btn btn-primary btn-lg">Make Prediction</a>
+                <a href="/trends" class="btn btn-secondary btn-lg">View Analytics</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" data-aos="fade-up">
+        <div class="container-lg">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>AI-Powered Predictions</h3>
+                    <p>Using Random Forest algorithm with 51.83% accuracy for PM2.5 forecasting</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Interactive Visualizations</h3>
+                    <p>Explore air quality trends with dynamic charts and graphs</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>State-wise Analysis</h3>
+                    <p>Compare pollution levels across different Indian states</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Real-time Results</h3>
+                    <p>Get instant predictions with visual health impact indicators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" data-aos="fade-up">
+        <div class="container-lg">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3>Input Parameters</h3>
+                    <p>Enter pollutant values like PM2.5, PM10, NO2, SO2, CO and Ozone</p>
+                </div>
+                <div class="step-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3>AI Processing</h3>
+                    <p>Stacked Generalization model analyzes the data patterns</p>
+                </div>
+                <div class="step-card" data-aos="fade-right" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3>Get Prediction</h3>
+                    <p>Receive AQI prediction with AQI Categories</p>
+                </div>
+                <div class="step-card" data-aos="fade-right" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h3>Visual Results</h3>
+                    <p>View results in interactive charts and graphs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" data-aos="fade-up">
+        <div class="container-lg">
+            <div class="stats-grid">
+                <div class="stat-box" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-trophy"></i>
+                    <h3>94.67%</h3>
+                    <p>Model Accuracy (R² Score)</p>
+                </div>
+                <div class="stat-box" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-crosshairs"></i>
+                    <h3>26.31</h3>
+                    <p>RMSE Score</p>
+                </div>
+                <div class="stat-box" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>18.01</h3>
+                    <p>MAE Score</p>
+                </div>
+                <div class="stat-box" data-aos="flip-left" data-aos-delay="400">
+                    <i class="fas fa-database"></i>
+                    <h3>9</h3>
+                    <p>ML Algorithms Compared</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-content" id="about" data-aos="fade-up">
+        <div class="container-lg">
+            <div class="page-header text-center mb-5">
+                <h1>About This Project</h1>
+                <p class="lead">Understanding Air Quality Prediction with Machine Learning</p>
+            </div>
+            <div class="about-grid mb-5">
+                <div class="about-text">
+                    <h2>What is This Project?</h2>
+                    <p>The India Air Quality Prediction system is an advanced machine learning application designed to forecast AQI  levels based on various environmental pollutants. This project uses historical air quality data from across India to train a Stacked Generalization.</p>
+                    <p>AQI (Air Quality Index) is a numerical scale used to describe how clean or polluted the air is in a specific location and what associated health effects might be a concern.</p>
+                </div>
+                <div class="about-image">
+                    <div class="info-box">
+                        <i class="fas fa-lungs"></i>
+                        <h3>Health Impact</h3>
+                        <p>PM2.5 monitoring helps protect public health</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Information -->
+    <section class="model-info" data-aos="fade-up">
+        <div class="container-lg">
+            <h2 class="section-title">Machine Learning Model</h2>
+            <div class="model-grid">
+                <div class="model-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3><i class="fas fa-robot"></i> Algorithm</h3>
+                    <p><strong>⭐ Stacked Generalization</strong></p>
+                    <p>An ensemble learning method that operates by constructing multiple decision trees during training.</p>
+                </div>
+                <div class="model-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3><i class="fas fa-chart-line"></i> Performance</h3>
+                    <p><strong>R² Score: 0.9467</strong></p>
+                    <p>RMSE: 26.31 | MAE: 18.01</p>
+                    <p>Cross-Validation: 33.49332143862911 ± 2.163987567553635</p>
+                </div>
+                <div class="model-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h3><i class="fas fa-layer-group"></i> Features Used</h3>
+                    <p> Date, Month, Year, Holidays_Count, Days</p>
+                    <p>PM2.5, PM10, NO2, SO2, CO, Ozone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Technology Stack -->
+    <section class="tech-stack" data-aos="fade-up">
+        <div class="container-lg">
+            <h2 class="section-title">Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="100">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Core Programming Language</p>
+                </div>
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="150">
+                    <i class="fas fa-flask"></i>
+                    <h3>Flask</h3>
+                    <p>Web Framework</p>
+                </div>
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="200">
+                    <i class="fas fa-brain"></i>
+                    <h3>Scikit-learn</h3>
+                    <p>Machine Learning</p>
+                </div>
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="250">
+                    <i class="fas fa-table"></i>
+                    <h3>Pandas</h3>
+                    <p>Data Processing</p>
+                </div>
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="300">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Chart.js</h3>
+                    <p>Data Visualization</p>
+                </div>
+                <div class="tech-card" data-aos="flip-up" data-aos-delay="350">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML/CSS/JS</h3>
+                    <p>Frontend Technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AQI Information -->
+    <section class="aqi-info" data-aos="fade-up">
+        <div class="container-lg">
+            <h2 class="section-title">Air Quality Index (AQI) Categories</h2>
+            <div class="aqi-grid">
+                <div class="aqi-card good" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Good (0-50)</h3>
+                    <p>Air quality is satisfactory, and air pollution poses little or no risk.</p>
+                </div>
+                <div class="aqi-card satisfactory" data-aos="fade-right" data-aos-delay="150">
+                    <h3>Satisfactory (51-100)</h3>
+                    <p>Air quality is acceptable. However, there may be a risk for some people.</p>
+                </div>
+                <div class="aqi-card moderate" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Moderate (101-200)</h3>
+                    <p>Members of sensitive groups may experience health effects.</p>
+                </div>
+                <div class="aqi-card poor" data-aos="fade-right" data-aos-delay="250">
+                    <h3>Poor (201-300)</h3>
+                    <p>The risk of health effects is increased for everyone.</p>
+                </div>
+                <div class="aqi-card very-poor" data-aos="fade-right" data-aos-delay="300">
+                    <h3>Very Poor (301-399)</h3>
+                    <p>Health warning: everyone is more likely to be affected.</p>
+                </div>
+                <div class="aqi-card severe" data-aos="fade-right" data-aos-delay="350">
+                    <h3>Severe (400+)</h3>
+                    <p>Health alert: Everyone may experience serious health effects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="zoom-in">
+        <div class="container-lg">
+            <h2>Ready to Predict Air Quality?</h2>
+            <p>Get instant PM2.5 predictions with our AI-powered system</p>
+            <a href="#prediction" class="btn btn-primary btn-lg">Start Predicting Now</a>
+        </div>
+    </section>
+
+    <!-- Prediction Section -->
+    <section id="prediction" class="py-5">
+        <div class="container-lg">
+            <!-- Header Section -->
+            <section class="mb-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="display-4 fw-bold mb-3">Real-time AQI Prediction</h1>
+                        <p class="lead text-muted">Use our AI-powered model to predict Delhi's air quality based on pollutant levels and environmental factors.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="alert alert-info" role="alert">
+                            <strong>What is AQI?</strong><br>
+                            Air Quality Index (AQI) measures pollution levels. Lower values indicate better air quality.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Grid -->
+            <div class="row g-4">
+                <!-- Prediction Form -->
+                <div class="col-lg-5">
+                    <div class="card prediction-card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Input Parameters</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="predictionForm">
+                                <div class="form-group mb-3">
+                                    <label for="Date" class="form-label">Date (1-31)</label>
+                                    <input type="number" class="form-control" id="Date" name="Date" min="1" max="31" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group mb-3">
+                                            <label for="Month" class="form-label">Month (1-12)</label>
+                                            <input type="number" class="form-control" id="Month" name="Month" min="1" max="12" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group mb-3">
+                                            <label for="Year" class="form-label">Year</label>
+                                            <input type="number" class="form-control" id="Year" name="Year" min="2000" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="Holidays_Count" class="form-label">Holidays Count</label>
+                                    <input type="number" class="form-control" id="Holidays_Count" name="Holidays_Count" min="0" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="Days" class="form-label">Day of Week (1-7)</label>
+                                    <input type="number" class="form-control" id="Days" name="Days" min="1" max="7" required>
+                                </div>
+                                <hr>
+                                <h6 class="mb-3 text-secondary">Pollutant Levels (µg/m³)</h6>
+                                <div class="form-group mb-2">
+                                    <label for="PM2.5" class="form-label">PM2.5</label>
+                                    <input type="number" class="form-control" id="PM2.5" name="PM2.5" step="0.1" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="PM10" class="form-label">PM10</label>
+                                    <input type="number" class="form-control" id="PM10" name="PM10" step="0.1" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="NO2" class="form-label">NO₂</label>
+                                    <input type="number" class="form-control" id="NO2" name="NO2" step="0.1" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="SO2" class="form-label">SO₂</label>
+                                    <input type="number" class="form-control" id="SO2" name="SO2" step="0.1" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="CO" class="form-label">CO</label>
+                                    <input type="number" class="form-control" id="CO" name="CO" step="0.1" required>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="Ozone" class="form-label">Ozone (O₃)</label>
+                                    <input type="number" class="form-control" id="Ozone" name="Ozone" step="0.1" required>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-primary w-100">
+                                    Predict AQI
+                                </button>
+                                <button type="button" id="runTestBtn" class="btn btn-sm btn-outline-secondary w-100 mt-2">Run Test (sample)</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="col-lg-7">
+                    <!-- Prediction Result -->
+                    <div class="card result-card shadow-sm mb-4" id="resultCard" style="display: none;">
+                        <div class="card-body text-center py-5">
+                            <h6 class="text-muted mb-3">Predicted AQI Value</h6>
+                            <div class="aqi-display mb-4" id="aqiDisplay">
+                                <div class="aqi-value" id="aqiValue">--</div>
+                            </div>
+                            <h4 id="categoryLabel" class="mb-2">--</h4>
+                            <p class="text-muted mb-3" id="categoryRange">--</p>
+                            <div id="categoryDescription" class="alert" role="alert">
+                                <!-- Category info -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Debug panel: shows raw server response (visible only during debugging) -->
+                    <div class="col-12 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Debug: last server response</h6>
+                                <pre id="debugResponse" style="display:none; white-space: pre-wrap; background:#f8f9fa; padding:12px; border-radius:4px; height:120px; overflow:auto;"></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts -->
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="card chart-card shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title mb-3">Pollutant Levels (from input)</h6>
+                                    <canvas id="pollutantChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AQI Reference -->
+            <section class="mt-5">
+                <h3 class="mb-4">AQI Categories Reference</h3>
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="0">
+                            <div class="category-badge good">Good</div>
+                            <p class="mb-1"><strong>0-50</strong></p>
+                            <small class="text-muted">Minimal pollution</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="1">
+                            <div class="category-badge satisfactory">Satisfactory</div>
+                            <p class="mb-1"><strong>51-100</strong></p>
+                            <small class="text-muted">Acceptable levels</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="2">
+                            <div class="category-badge moderate">Moderate</div>
+                            <p class="mb-1"><strong>101-200</strong></p>
+                            <small class="text-muted">Some pollution</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="3">
+                            <div class="category-badge poor">Poor</div>
+                            <p class="mb-1"><strong>201-300</strong></p>
+                            <small class="text-muted">Significant concern</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="4">
+                            <div class="category-badge very-poor">Very Poor</div>
+                            <p class="mb-1"><strong>301-399</strong></p>
+                            <small class="text-muted">Health warning</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2">
+                        <div class="aqi-category-card" data-category="5">
+                            <div class="category-badge severe">Severe</div>
+                            <p class="mb-1"><strong>400+</strong></p>
+                            <small class="text-muted">Health alert</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section id="report" class="report-section py-5" style="display: none;">
+        <div class="container-lg">
+            <div class="report-header text-center mb-5">
+                <h2 class="section-title">Air Quality Report</h2>
+                <p class="text-muted">Detailed analysis and recommendations based on your prediction</p>
+            </div>
+            
+            <div class="report-content">
+                <div class="row">
+                    <!-- Report Summary Card -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="card report-summary-card shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="report-aqi-display mb-4" id="reportAqiDisplay">
+                                    <div class="report-aqi-value" id="reportAqiValue">--</div>
+                                    <div class="report-category-label" id="reportCategoryLabel">--</div>
+                                    <div class="report-category-range" id="reportCategoryRange">--</div>
+                                </div>
+                                <div class="report-date-time">
+                                    <p class="text-muted mb-0">
+                                        <i class="fas fa-calendar me-2"></i>
+                                        <span id="reportDate">--</span>
+                                    </p>
+                                    <p class="text-muted mb-0">
+                                        <i class="fas fa-clock me-2"></i>
+                                        <span id="reportTime">--</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Report Details Card -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="card report-details-card shadow-sm">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="card-title mb-0">
+                                    <i class="fas fa-info-circle me-2"></i>Health Information & Recommendations
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="report-section-item mb-4">
+                                    <h6 class="report-section-title">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Health Implications
+                                    </h6>
+                                    <p class="report-text" id="reportHealthImplications">--</p>
+                                </div>
+                                
+                                <div class="report-section-item">
+                                    <h6 class="report-section-title">
+                                        <i class="fas fa-shield-alt me-2"></i>Recommended Safety Measures
+                                    </h6>
+                                    <p class="report-text" id="reportSafetyMeasures">--</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Actions -->
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary me-2" onclick="window.print()">
+                            <i class="fas fa-print me-2"></i>Print Report
+                        </button>
+                        <button class="btn btn-success" onclick="downloadReport()">
+                            <i class="fas fa-download me-2"></i>Download Report
+                        </button>
+                        <button class="btn btn-secondary ms-2" onclick="closeReport()">
+                            <i class="fas fa-times me-2"></i>Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-lg">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-wind"></i> AirQuality AI</h3>
+                    <p>Predicting air quality for a healthier tomorrow using advanced machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="/trends">Visualization</a></li>
+                        <li><a href="#prediction">Prediction</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@airqualityai.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AirQuality AI. All rights reserved. | Developed by CodeAj Marketplace</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='prediction.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
